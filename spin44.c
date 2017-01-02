@@ -6,23 +6,25 @@
 int delE(int lts[40][40], int i, int j, int dir)
 {
     int up=0, dn=0, rt=0, lt=0, sum=0, rsum=0, rdir=0, d=0;
+    
     if(dir == 1)
-        {rdir = -1;}
+    {rdir = -1;}
     else 
-        {rdir =  1;}
+    {rdir =  1;}
+	
     if(i == 0)
-        {up = lts[39][j], dn = lts[i+1][j];}
+    {up = lts[39][j], dn = lts[i+1][j];}
     else if(i == 39)
-        {up = lts[i-1][j],  dn = lts[0][j];}
+    {up = lts[i-1][j],  dn = lts[0][j];}
     else 
-        {up = lts[i-1][j],dn = lts[i+1][j];}
+    {up = lts[i-1][j],dn = lts[i+1][j];}
 
     if(j == 0)
-        {lt = lts[i][39], rt = lts[i][j+1];}
+    {lt = lts[i][39], rt = lts[i][j+1];}
     else if(j == 39)
-        {lt = lts[i][j-1],  rt = lts[i][0];}
+    {lt = lts[i][j-1],  rt = lts[i][0];}
     else 
-        {lt = lts[i][j-1],rt = lts[i][j+1];}
+    {lt = lts[i][j-1],rt = lts[i][j+1];}
 
     sum=dir*up + dir*dn + dir*lt + dir*rt;
     rsum=rdir*up + rdir*dn + rdir*lt + rdir*rt;
@@ -139,10 +141,10 @@ int main()
         for(i=0;i<1000;i++)
         {
             if(i < 1000-t)
-                {E1 = E1 + M[i]*M[i+t] - mean*M[i];}
+            {E1 = E1 + M[i]*M[i+t] - mean*M[i];}
     
             if( i >= t+1 )
-                {E2 = E2 + mean*M[i];}
+            {E2 = E2 + mean*M[i];}
         }
         R[t-1] = ((E1 - E2)/(1000.0-(double)t) + mean*mean) / rsq;
   
